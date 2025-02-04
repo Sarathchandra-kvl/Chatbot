@@ -1,7 +1,21 @@
+# Core dependencies
 streamlit
 PyPDF2
+
+# LangChain components
 langchain
+langchain-core
 langchain-community
 langchain-google-genai
+
+# Google AI integration
 google-generativeai
-faiss-gpu
+google-auth
+
+# Vector store (pick one)
+faiss-cpu  # Default CPU version
+# faiss-gpu  # Use if you have NVIDIA GPU
+
+# Optional utilities
+python-dotenv  # For .env file handling
+tqdm  # For progress bars
