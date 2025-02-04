@@ -29,7 +29,7 @@ def get_pdf_text(pdf_docs):
     return text
 
 def split_to_chunks(text):
-    text_splitter=RecursiveCharacterTextSplitter(chunk_size=2000,chunk_overlap=500)
+    text_splitter=RecursiveCharacterTextSplitter(chunk_size=500,chunk_overlap=100)
     chunks=text_splitter.split_text(text)
     return chunks
 
