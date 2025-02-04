@@ -16,7 +16,7 @@ st.write(
     )
 
 
-api_key= st.text_input("Google API Key", type="password")
+api_key= "AIzaSyDKVNSdigi4vloK1qhqq1rD9gEBFBT6w_w"
 
 
 # defining a function that reads pdfs
@@ -29,7 +29,7 @@ def get_pdf_text(pdf_docs):
     return text
 
 def split_to_chunks(text):
-    text_splitter=RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=100)
+    text_splitter=RecursiveCharacterTextSplitter(chunk_size=2000,chunk_overlap=500)
     chunks=text_splitter.split_text(text)
     return chunks
 
@@ -41,7 +41,7 @@ def vector_stores(text_chunks,api_key):
 def get_conversational_chain():
     prompt_template = """
     Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
-    provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
+    provided context just say, "answer is not available in the context,answer in a human way"\n\n
     Context:\n {context}?\n
     Question: \n{question}\n
 
@@ -53,12 +53,13 @@ def get_conversational_chain():
     return chain
 
 def user_input(user_question, api_key):
+    
     embeddings = embed(model="models/embedding-001", google_api_key=api_key)
-    new_db = FAISS.load_local("faiss_index", embeddings)
+    new_db = FAISS.load_local("faiss_index", embeddings,allow_dangerous_deserialization=True)
     docs = new_db.similarity_search(user_question)
     chain = get_conversational_chain()
     response = chain({"input_documents": docs, "question": user_question}, return_only_outputs=True)
-    st.write("Reply: ", response["output_text"])
+    st.write("Reply: \n", response["output_text"])
 
 # modelling on streamlit
 def main():
@@ -78,3 +79,6 @@ def main():
                 text_chunks = split_to_chunks(raw_text)
                 vector_stores(text_chunks, api_key)
                 st.success("Done")
+
+if __name__ == "__main__":
+    main()
