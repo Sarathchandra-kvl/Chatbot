@@ -19,4 +19,4 @@ faiss-gpu  # Use if you have NVIDIA GPU
 # Optional utilities
 python-dotenv  # For .env file handling
 tqdm  # For progress bars
-whisper
+
