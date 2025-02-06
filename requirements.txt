@@ -20,3 +20,4 @@ faiss-cpu  # Default CPU version
 python-dotenv  # For .env file handling
 tqdm  # For progress bars
 openai-whisper
+git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
