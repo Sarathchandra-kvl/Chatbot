@@ -19,3 +19,4 @@ faiss-cpu  # Default CPU version
 # Optional utilities
 python-dotenv  # For .env file handling
 tqdm  # For progress bars
+whisper
