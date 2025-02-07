@@ -21,3 +21,4 @@ python-dotenv  # For .env file handling
 tqdm  # For progress bars
 gTTS
 git+https://github.com/openai/whisper.git
+git+https://git.ffmpeg.org/ffmpeg.git ffmpeg
