@@ -5,4 +5,3 @@ langchain-google-genai
 faiss-cpu
 gTTS
 git+https://github.com/openai/whisper.git
-pip install --upgrade langchain
