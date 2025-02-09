@@ -8,12 +8,13 @@ import google.generativeai as genai
 from langchain.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.question_answering import load_qa_chain
-from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
-
+from langchain.prompts import PromptTemplate
+# os.environ["IMAGEIO_FFMPEG_EXE"] = "C:\\path\\to\\ffmpeg.exe"
 import whisper
 from gtts import gTTS  # For text-to-speech
 
+# os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
 # ================================
 # 1. Chat History Setup (New)
 # ================================
@@ -42,7 +43,7 @@ st.write(
 )
 
 api_key = "AIzaSyDKVNSdigi4vloK1qhqq1rD9gEBFBT6w_w"
-
+    
 # ================================
 # 4. PDF Processing Functions
 # ================================
@@ -69,11 +70,11 @@ def vector_stores(text_chunks, api_key):
 # ================================
 def get_conversational_chain(retriever, api_key):
     prompt_template = """
-   1) Answer the question as detailed as possible from the provided context (at least 100 words) including all available information.
-   2) If the exact answer is not found in the documents, expand on relevant topics using your creativity.
-   3) If the answer is not in the context:
-      - Answer without relying on the context.
-      - Start the answer with: "Answering in general as context is not provided:"
+    1) Answer the question as detailed as possible from the provided context (at least 100 words) including all available information.
+    2) If the exact answer is not found in the documents, expand on relevant topics using your creativity.
+    3) If the answer is not in the context:
+       - Answer without relying on the context.
+       - Start the answer with: "Answering in general as context is not provided:"
       
     Context:
     {context}
@@ -107,11 +108,8 @@ def get_conversational_chain(retriever, api_key):
 # 6. User Input Handling Function
 # ================================
 def user_input(user_question, api_key):
-    
     # Load embeddings and FAISS index
     embeddings = embed(model="models/embedding-001", google_api_key=api_key)
-
-    
     new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
     
     # Create retriever from FAISS index
@@ -172,6 +170,7 @@ def main():
                 st.error(f"Error transcribing audio: {e}")
     
     # --- Text Input Section ---
+    
     user_question = st.text_input("Ask a Question from the PDF Files", key="user_question")
     
     if user_question and api_key:  # Ensure API key and user question are provided
@@ -184,9 +183,10 @@ def main():
         if st.button("Submit & Process", key="process_button") and api_key:  # Check if API key is provided before processing
             with st.spinner("Processing PDFs..."):
                 raw_text = get_pdf_text(pdf_docs)
+                
                 text_chunks = split_to_chunks(raw_text)
                 vector_stores(text_chunks, api_key)
                 st.success("PDF processing complete!")
 
 if __name__ == "__main__":
-    main()
+    main()  
