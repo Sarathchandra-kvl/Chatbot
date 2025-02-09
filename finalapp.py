@@ -24,12 +24,12 @@ if "user_question" not in st.session_state:
 # ================================
 # 2. Define Text-to-Speech Function (New)
 # ================================
-def text_to_speech(text, lang='en'):
-    """Converts text to speech and returns the path of the temporary audio file."""
-    tts = gTTS(text=text, lang=lang)
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tts_file:
-        tts.save(tts_file.name)
-        return tts_file.name
+# def text_to_speech(text, lang='en'):
+#     """Converts text to speech and returns the path of the temporary audio file."""
+#     tts = gTTS(text=text, lang=lang)
+#     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tts_file:
+#         tts.save(tts_file.name)
+#         return tts_file.name
 
 # ================================
 # 3. Title and Description
