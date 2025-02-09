@@ -109,9 +109,7 @@ def user_input(user_question, api_key):
     
     # Load embeddings and FAISS index
     embeddings = embed(model="models/embedding-001", google_api_key=api_key)
-    if not os.path.exists("faiss_index"):
-        st.error("FAISS index not found. Please upload and process PDFs first.")
-        return
+
     
     new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
     
