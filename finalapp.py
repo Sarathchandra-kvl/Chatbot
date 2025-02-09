@@ -168,7 +168,7 @@ def main():
                 st.error(f"Error transcribing audio: {e}")
     
     # --- Text Input Section ---
-    user_question = st.text_input("Ask a Question from the PDF Files", key="user_question", value=st.session_state.user_question)
+    user_question = st.text_input("Ask a Question from the PDF Files", key="user_question")
     
     if user_question and api_key:  # Ensure API key and user question are provided
         user_input(user_question, api_key)
