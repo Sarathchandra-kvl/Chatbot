@@ -154,7 +154,7 @@ def main():
     if audio_input is not None:
         with st.spinner("Transcribing audio..."):
             try:
-                model = whisper.load_model("base")
+                model = whisper.load_model("small")
                 # Save the recorded audio to a temporary file
                 with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_audio:
                     temp_audio.write(audio_input.getbuffer())
