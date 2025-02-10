@@ -113,7 +113,7 @@ def get_conversational_chain(retriever, api_key):
 def user_input(user_question, api_key):
     # Load embeddings and FAISS index
     embeddings = embed(model="models/embedding-001", google_api_key=api_key)
-    new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
+    new_db = FAISS.load_local(st.session_state.vector_store_dir, embeddings, allow_dangerous_deserialization=True)
     
     # Create retriever from FAISS index
     retriever = new_db.as_retriever(search_kwargs={"k": 8}, similarity_score_threshold=0.7)
