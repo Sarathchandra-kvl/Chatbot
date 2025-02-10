@@ -41,7 +41,7 @@ def text_to_speech(text, lang='en'):
 st.title(f"DUMBO {u'\U0001F914'}")
 st.write(
     "💬 This chatbot uses Retrieval-Augmented Generation (RAG) with Whisper for audio transcription and Google Gemini for response generation. "
-    "Currently, the chatbot reads text from PDFs. Avoid uploading other file types to prevent errors."
+    "Currently, the chatbot reads text from PDFs. Avoid uploading other file types to prevent errors.And if you ask a question without sending a pdf it shows error,so ask any question after sumbitting the pdf"
 )
 
 api_key = "AIzaSyDKVNSdigi4vloK1qhqq1rD9gEBFBT6w_w"
