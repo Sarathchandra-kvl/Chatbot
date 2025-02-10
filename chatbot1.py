@@ -75,7 +75,8 @@ def get_conversational_chain(retriever, api_key):
     prompt_template = """
     1) Answer the question as detailed as possible from the provided context (at least 100 words) including all available information.
     2) If the exact answer is not found in the documents, expand on relevant topics using your creativity.
-    3) If the answer is not in the context:
+    3) If a question has answer in context and in general focus on answering from context.
+    4) If the answer is not in the context:
        - Answer without relying on the context.
        - Start the answer with: "Answering in general as context is not provided:"
       
