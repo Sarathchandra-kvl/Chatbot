@@ -2,6 +2,8 @@
 
 A dumb chatbot made by SarathChandraKVL.
 
+CHATBOT1 is the main and final project rest are just another versions!!
+
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://chatbot-template.streamlit.app/)
 
 ### Instruction to run the project
