@@ -17,7 +17,7 @@ CHATBOT1 is the main and final project rest are just another versions!!
 2. Run the app
 
    ```
-   $ streamlit run streamlit_app.py
+   $ streamlit run chatbot1_app.py
    ```
 CHATBOT WITH RAG + VOICE FEATURES,app link below
 
