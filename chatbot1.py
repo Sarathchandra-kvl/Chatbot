@@ -44,7 +44,7 @@ st.write(
     "Currently, the chatbot reads text from PDFs. Avoid uploading other file types to prevent errors.And if you ask a question without sending a pdf it shows error,so ask any question after sumbitting the pdf"
 )
 
-api_key = "AIzaSyDKVNSdigi4vloK1qhqq1rD9gEBFBT6w_w"
+api_key = "AIzaSyDL5AlhAK15K9gBDunjwBx_QlF52ojdiOI"
     
 # ================================
 # 4. PDF Processing Functions
