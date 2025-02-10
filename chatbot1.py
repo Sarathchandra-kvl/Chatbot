@@ -61,11 +61,12 @@ def split_to_chunks(text):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     chunks = text_splitter.split_text(text)
     return chunks
-
-def vector_stores(text_chunks, api_key):
+if "vector_store_dir" not in st.session_state:
+    st.session_state.vector_store_dir = f"faiss_index_{uuid.uuid4().hex}"
+def vector_stores(text_chunks, api_key,index_dir):
     embeddings = embed(model="models/embedding-001", google_api_key=api_key)
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
-    vector_store.save_local("faiss_index")
+    vector_store.save_local(index_dir)
 
 # ================================
 # 5. Conversational Chain Function
@@ -192,7 +193,7 @@ def main():
                 raw_text = get_pdf_text(pdf_docs)
                 
                 text_chunks = split_to_chunks(raw_text)
-                vector_stores(text_chunks, api_key)
+                vector_stores(text_chunks, api_key,st.session_state.vector_store_dir)
                 st.success("PDF processing complete!")
 
 if __name__ == "__main__":
