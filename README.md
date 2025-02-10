@@ -18,8 +18,11 @@ A dumb chatbot made by SarathChandraKVL.
    $ streamlit run streamlit_app.py
    ```
 CHATBOT WITH RAG + VOICE FEATURES,app link below
+
 https://chatbot1py-hzjg4oywxgcpr59vxvc3bg.streamlit.app/
-In this I added voice features,chat history,can answer questions which are not related to context by saying : Answering in general as context is not provided
+
+In this I added voice features,chat history,can answer questions which are not related to context by saying : 
+Answering in general as context is not provided
 
 For the basic frontend picture of the website I directly used streamlit chatbot model and built on it
 
