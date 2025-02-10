@@ -13,7 +13,7 @@ from langchain.prompts import PromptTemplate
 # os.environ["IMAGEIO_FFMPEG_EXE"] = "C:\\path\\to\\ffmpeg.exe"
 import whisper
 from gtts import gTTS  # For text-to-speech
-
+import uuid
 # os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
 # ================================
 # 1. Chat History Setup (New)
