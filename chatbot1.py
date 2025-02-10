@@ -22,6 +22,8 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 if "user_question" not in st.session_state:
     st.session_state.user_question = ""
+# Clear all cached data functions
+st.cache_data.clear()
 
 # ================================
 # 2. Define Text-to-Speech Function (New)
@@ -177,6 +179,11 @@ def main():
         user_input(user_question, api_key)
     
     # --- Sidebar: PDF Upload and Processing Section ---
+    # To clear the chat history (if needed):
+    if st.sidebar.button("Clear Chat History"):
+        st.session_state.chat_history = []
+        st.success("Chat history cleared!")
+
     with st.sidebar:
         st.title("Menu:")
         pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True, key="pdf_uploader")
