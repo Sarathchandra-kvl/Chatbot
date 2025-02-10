@@ -137,8 +137,7 @@ def user_input(user_question, api_key):
             st.write("**Bot:**", msg["content"])
     
     # Display the text response
-    st.write("### Reply:")
-    st.write(response["result"])
+    
     
     # Text-to-Speech: Convert the response to audio and play it (New)
     tts_audio_file = text_to_speech(response["result"])
