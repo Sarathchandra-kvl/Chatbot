@@ -6,4 +6,4 @@ faiss-cpu
 gTTS
 git+https://github.com/openai/whisper.git
 langchain-community
-google.generativea
+google.generativeai
