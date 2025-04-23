@@ -1,41 +1,86 @@
-# 💬 Chatbot template
-
-A dumb chatbot made by SarathChandraKVL.
-
-CHATBOT1 is the main and final project rest are just another versions!!
+🧠 DUMBO: Audio-Enhanced RAG Chatbot using Google Gemini
+DUMBO is an intelligent chatbot built with Retrieval-Augmented Generation (RAG) powered by Google Gemini, enhanced with Whisper for audio transcription and gTTS for voice output. It allows users to ask questions about uploaded PDF documents via voice or text and responds in both text and audio formats.
 
 
 
-### Instruction to run the project
+🚀 Features
+📄 PDF-Based Question Answering – Upload multiple PDFs and ask questions based on their content.
 
-1. Install the requirements
+🎙️ Voice Input – Ask your question by speaking; Whisper automatically transcribes it.
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+🔊 Voice Output – Get answers read aloud using Google Text-to-Speech (gTTS).
 
-2. Run the app
+🧠 Google Gemini Integration – Leverages Gemini 1.5 Pro for accurate, context-rich answers.
 
-   ```
-   $ streamlit run chatbot1_app.py
-   ```
-CHATBOT WITH RAG + VOICE FEATURES,app link below
+🗂️ FAISS Vector Store – Efficient chunking and retrieval of document data.
 
-https://chatbot1py-hzjg4oywxgcpr59vxvc3bg.streamlit.app/
+🗣️ Conversational Memory – Tracks chat history for a natural conversation experience.
 
-In this I added voice features,chat history,can answer questions which are not related to context by saying : 
-Answering in general as context is not provided
+🛠️ Tech Stack
+Streamlit – UI/UX
 
-For the basic frontend picture of the website I directly used streamlit chatbot model and built on it
+Whisper – Speech-to-text
 
-For basic chatbot structure I took inspiration from a yt channel and then made improvements using ChatGPT and Deepseek
+gTTS – Text-to-speech
 
-I learnt adding voice features from chatgpt and deepseek, had a lot of troubles fixing it.
+Google Gemini Pro – LLM for response generation
 
-I actually learnt more about environments in python and more regarding API keys.
+LangChain – Chains & RAG pipeline
 
-It took me a lot of time to make add voice features and far as the basic RAG model as I already had to make a similar project related to cynaptics club,
-It was easy for me to complete the basic one.
-I had troubles working with ffmpeg and also my app had exceeded data limit as I accidentally saved all the vectors in single directory and it did'nt reset after the session logout,then I had to use a temporary uuid and make it accessible.
+FAISS – Document embedding store
 
-I named it dumbo cause I felt dumb when I was using similar websites on internet for my exam prep and this was a model,which I could make on my own,It felt good as it was the 1st project that I made that had some sort of usage to a student's life.
+📦 Setup Instructions
+1. Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/your-username/dumbo-chatbot.git
+cd dumbo-chatbot
+2. Install Requirements
+bash
+Copy
+Edit
+pip install -r requirements.txt
+3. Set Up API Key
+Add your Google Generative AI API Key in the code (replace placeholder in api_key = ""):
+
+python
+Copy
+Edit
+api_key = "YOUR_GOOGLE_API_KEY"
+▶️ Run the App
+bash
+Copy
+Edit
+streamlit run app.py
+📋 How to Use
+Upload your PDF(s) from the Sidebar Menu.
+
+Click "Submit & Process" to chunk and index the documents.
+
+Use the text input or record audio to ask questions.
+
+The assistant will display and read the answer aloud.
+
+Clear chat history anytime via the sidebar.
+
+📌 Example Use Cases
+Studying large textbooks
+
+Summarizing legal documents
+
+Navigating user manuals
+
+Quick Q&A from technical PDFs
+
+🧩 To-Do / Improvements
+⏳ Support for longer audio inputs
+
+💾 Save conversation history
+
+🌍 Multilingual support
+
+🔐 Secure API key via environment variables
+
+🤝 Contributing
+Feel free to submit pull requests or open issues for bugs and feature suggestions.
